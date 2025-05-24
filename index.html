@@ -202,7 +202,9 @@
         }
 
         .actions-section {
-            padding: 40px;
+            padding: 40px; 
+            overflow-y: auto;
+            max-height: 100vh; /* ou remova se não quiser limitar */
         }
 
         .actions-title {
@@ -215,7 +217,7 @@
 
         .actions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
@@ -852,7 +854,14 @@
                 responsible: "Jô",
                 status: "a-fazer",
                 brand: "Victa"
-            }            
+            }
+              {
+                title: "Ritos com Guardiões 2",
+                description: "Iniciar os ritos com o time selecionado de representantes",
+                responsible: "Jô",
+                status: "a-fazer",
+                brand: "Victa"
+            } 
                    ];
 
         // Populate actions
