@@ -529,8 +529,8 @@
                     <div class="progress-fill" style="width: 60%; background: linear-gradient(90deg, #e67e22, #d35400);"></div>
                 </div>
             </div>
-
-            <div class="metric-card" style="border-left-color: #f39c12;">
+        </div>
+     <div class="metric-card" style="border-left-color: #f39c12;">
                 <div class="metric-title">
                     <span class="brand-badge" style="background: #f39c12;">Grupo Diagonal</span>
                     NPS Geral
@@ -675,16 +675,16 @@
         new Chart(document.getElementById('annualComparisonChart'), {
             type: 'bar',
             data: {
-                labels: ['Pós venda', 'Pós assinatura', 'Pós visita', 'Pós vistoria', 'Pós chaves', 'Pós Moradia', 'Astec', 'Grupo Diagonal', 'Geral'],
+                labels: ['Pós venda', 'Pós assinatura', 'Pós visita', 'Pós vistoria', 'Pós chaves', 'Pós Moradia', 'Astec', 'Geral'],
                 datasets: [{
                     label: '2024',
-                    data: [89, 88, 79, 81, 81, -53, 33, 73, 72],
+                    data: [89, 88, 79, 81, 81, -53, 33, 72],
                     backgroundColor: 'rgba(52, 152, 219, 0.8)',
                     borderColor: '#3498db',
                     borderWidth: 2
                 }, {
                     label: '2025',
-                    data: [87, 76, 84, 89, null, -39, 47, 65, 64],
+                    data: [87, 76, 84, 89, null, -39, 47, 64],
                     backgroundColor: 'rgba(231, 76, 60, 0.8)',
                     borderColor: '#e74c3c',
                     borderWidth: 2
@@ -777,3 +777,135 @@
                 }, {
                     label: 'NPS Pós Ocupação',
                     data: [-53, -54, -50, -42],
+                    borderColor: '#f39c12',
+                    backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Meta Victa',
+                    data: [70, 70, 70, 70],
+                    borderColor: '#27ae60',
+                    borderDash: [5, 5],
+                    fill: false
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Comparison Chart - REMOVED
+
+        // Actions data
+        const actions = [
+            {
+                title: "Modelo de Pesquisa",
+                description: "Realizar teste de um novo modelo de pesquisa de percepção",
+                responsible: "Jô",
+                status: "feito",
+                brand: "Diagonal"
+            },
+            {
+                title: "Reforço de Comunicação",
+                description: "Fomentar a pesquisa de pós venda através de reforço junto ao Comercial",
+                responsible: "Natália",
+                status: "feito",
+                brand: "Victa"
+            },
+            {
+                title: "Engajamento Interno",
+                description: "Reunir com líderes para definir os nomes dos guardiões seguindo os critérios definidos de perfil",
+                responsible: "Jô",
+                status: "feito",
+                brand: "Victa"
+            },
+            {
+                title: "Análise Estatística",
+                description: "Realizar análise de tendências do indicador nas fases mais críticas",
+                responsible: "Jô",
+                status: "feito",
+                brand: "Victa"
+            },
+            {
+                title: "Revisão de Metas",
+                description: "Realizar revisão de metas mensais para plano de recuperação",
+                responsible: "Jô",
+                status: "feito",
+                brand: "Victa"
+            },
+            {
+                title: "Entrevistas Direcionadas",
+                description: "Realização de entrevistas direcionadas com os clientes que deram as notas mais baixas",
+                responsible: "Natália",
+                status: "fazendo",
+                brand: "Victa"
+            },
+            {
+                title: "Análise Comparativa de Processos",
+                description: "Comparar os processos de assinatura de Fev-Abr/2025 com os períodos de alta performance em 2024",
+                responsible: "Jô",
+                status: "fazendo",
+                brand: "Victa"
+            },
+            {
+                title: "Identificação de Mudanças",
+                description: "Identificar outras mudanças recentes em sistemas, pessoal ou procedimentos que coincidam com a queda",
+                responsible: "Jô",
+                status: "fazendo",
+                brand: "Victa"
+            },
+            {
+                title: "Sistema de Alertas",
+                description: "Sistema de alerta preventivo quando recebermos notas detratoras e neutras",
+                responsible: "Jô",
+                status: "fazendo",
+                brand: "Victa"
+            },
+            {
+                title: "Comunicação Proativa",
+                description: "Comunicação ainda mais proativa durante o processo (Régua com pílulas de conhecimento)",
+                responsible: "Jô",
+                status: "a-fazer",
+                brand: "Victa"
+            },
+            {
+                title: "Reuniões de Análise",
+                description: "Reuniões semanais de 15 minutos para análise dos resultados",
+                responsible: "Jô",
+                status: "a-fazer",
+                brand: "Victa"
+            },
+            {
+                title: "Ritos com Guardiões",
+                description: "Iniciar os ritos com o time selecionado de representantes",
+                responsible: "Jô",
+                status: "a-fazer",
+                brand: "Victa"
+            }
+        ];
+
+        // Populate actions
+        const actionsGrid = document.getElementById('actionsGrid');
+        actions.forEach(action => {
+            const actionCard = document.createElement('div');
+            actionCard.className = `action-card ${action.status}`;
+            actionCard.innerHTML = `
+                <div class="action-header">
+                    <div class="action-title">${action.title}</div>
+                    <div class="status-badge ${action.status}">${action.status === 'feito' ? 'Feito' : action.status === 'fazendo' ? 'Fazendo' : 'A Fazer'}</div>
+                </div>
+                <div style="font-size: 0.9rem; color: #7f8c8d; margin: 10px 0;">${action.description}</div>
+                <div class="action-meta">
+                    <strong>Responsável:</strong> ${action.responsible} | <strong>Marca:</strong> ${action.brand}
+                </div>
+            `;
+            actionsGrid.appendChild(actionCard);
+        });
+
+        // Animate progress bars
+        setTimeout(() => {
+            document.querySelectorAll('.progress-fill').forEach(bar => {
+                bar.style.width = bar.style.width;
+            });
+        }, 500);
+    </script>
+</body>
+</html>
