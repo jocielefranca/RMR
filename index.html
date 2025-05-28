@@ -118,14 +118,16 @@
             backdrop-filter: blur(10px);
         }
 
-     .navigation {
-    bottom: 50px !important; /* Aumenta espaço abaixo */
-    transform: translateX(-50%) scale(0.9) !important;
-      padding: 10px;
-    border-radius: 50px;
-       
+           .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
 
-}
+    }
         .nav-btn {
             background: rgba(77, 208, 225, 0.8);
             border: none;
